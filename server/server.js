@@ -7,6 +7,7 @@ require("dotenv").config();
 mongoose.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  ssl: false,
 });
 
 const app = express();
