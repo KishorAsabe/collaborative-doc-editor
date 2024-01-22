@@ -36,7 +36,7 @@ const server = app.listen(PORT, () => {
 
 const io = require("socket.io")(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "https://collaborative-doc-editor.vercel.app/documents/59f7e4ff-2b61-4eca-bfb7-bc3ed2d2ec12",
     methods: ["GET", "POST"],
   },
 });
