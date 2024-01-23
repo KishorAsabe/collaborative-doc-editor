@@ -23,7 +23,6 @@ const LoginForm = () => {
   };
 
   const handleLogin = async () => {
-
     const loginData = {
       ...formData,
     };
@@ -32,10 +31,7 @@ const LoginForm = () => {
       await login(loginData);
       toast.success("Login Successful");
 
-      navigate('/document')
-      
- 
-
+      navigate("/document");
     } catch (error) {
       console.error("Login failed. Please try again.");
       toast.error("Login Failed");

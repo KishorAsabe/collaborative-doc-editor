@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
 // Retrieve the user data from localStorage
-const userDataString = localStorage.getItem('userData');
+const userDataString = localStorage.getItem("userData");
 // Parse the user data string into a JavaScript object
 const userData = userDataString ? JSON.parse(userDataString) : null;
 
@@ -20,8 +20,8 @@ const TextEditor = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const s = io("http://localhost:3001"); // Update with your WebSocket server URL
-    // Update with your backend URL
+    const s = io("http://localhost:3001");// Update with your backend URL 
+    
     setSocket(s);
 
     return () => {
@@ -84,11 +84,10 @@ const TextEditor = () => {
 
     wrapper.innerHTML = "";
     const editor = document.createElement("div");
-    
+
     wrapper.append(editor);
     const q = new Quill(editor, {
       theme: "snow",
-   
     });
     q.disable();
     q.setText("Loading...");
@@ -101,24 +100,24 @@ const TextEditor = () => {
         <div className="container mx-auto flex justify-between items-center">
           <div className="text-white text-2xl font-bold">CollabWriteHub</div>
           <div className="text-white text-sm font-semibold">
-            Welcome, {userData?.firstName || 'Guest'}
+            Welcome, {userData?.firstName || "Guest"}
           </div>
           <div className="flex gap-4">
             <button
               className="text-white hover:text-gray-300"
-              onClick={() => navigate('/')}
+              onClick={() => navigate("/")}
             >
               Home
             </button>
             <button
               className="text-white hover:text-gray-300"
-              onClick={() => navigate('/documents')}
+              onClick={() => navigate("/saveddocs")}
             >
               Documents
             </button>
             <button
               className="text-white hover:text-gray-300"
-              onClick={() => navigate('/documents')}
+              onClick={() => navigate("/logout")}
             >
               Log Out
             </button>
