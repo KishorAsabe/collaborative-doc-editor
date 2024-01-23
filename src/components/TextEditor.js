@@ -20,7 +20,7 @@ const TextEditor = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const s = io("http://localhost:3001");// Update with your backend URL 
+    const s = io("https://text-ed-backend.onrender.com/");// Update with your backend URL 
     
     setSocket(s);
 
