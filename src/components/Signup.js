@@ -1,11 +1,11 @@
 import React from "react";
-import { toast } from "react-hot-toast"
+import { toast } from "react-hot-toast";
 
 import { TEInput, TERipple } from "tw-elements-react";
 import { useState } from "react";
 import { signup } from "../services/api";
 import "react-toastify/dist/ReactToastify.css";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   // State for form input values
@@ -17,14 +17,14 @@ const Signup = () => {
     confirmPassword: "",
   });
 
-  const navigate = useNavigate()
-
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     setFormData((prevData) => ({
       ...prevData,
       [e.target.name]: e.target.value,
-    }))}
+    }));
+  };
 
   // Handle signup form submission
   const handleSignup = async () => {
@@ -35,23 +35,19 @@ const Signup = () => {
       return;
     }
 
-      const signupData = {
-        ...formData,
-       
-      }
-  
-      
+    const signupData = {
+      ...formData,
+    };
 
-      // Perform signup API request
-      try {
-        await signup(signupData);
-        toast.success("Signup Successful");
-        navigate("/"); // Navigate to the login page on successful signup
-      } catch (error) {
-        console.error("Signup failed. Please try again.");
-        toast.error("Signup Failed");
-      }
-
+    // Perform signup API request
+    try {
+      await signup(signupData);
+      toast.success("Signup Successful");
+      navigate("/"); // Navigate to the login page on successful signup
+    } catch (error) {
+      console.error("Signup failed. Please try again.");
+      toast.error("Signup Failed");
+    }
   };
 
   return (
@@ -118,10 +114,8 @@ const Signup = () => {
               Sign up
             </button>
           </TERipple>
-  
         </form>
       </div>
-      
     </div>
   );
 };
